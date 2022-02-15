@@ -9,12 +9,15 @@ const Home = () => {
   const navigation = useNavigation();
   const [songData, setSongData] = useState({});
 
+  // Adding document to a collection
   const addDocument = async () => {
+    // You will pass in your own document ID (song-2) in this instance with `setDoc`
     // await setDoc(doc(db, "songs", "song-2"), {
     //   title: "Out of Time",
     //   artist: "The Weeknd"
     // });
 
+    // Firebase will autogenerate a document ID when using `addDoc`
     const docRef = await addDoc(collection(db, "songs"), {
       title: "Dawn FM",
       country: "The Weeknd"
@@ -23,6 +26,7 @@ const Home = () => {
     console.log(docRef.id);
   };
 
+  // Retrieiving a document from Firestore
   const getDocument = async () => {
     const docRef = doc(db, "songs", "song-1");
     const docSnap = await getDoc(docRef);
@@ -35,8 +39,12 @@ const Home = () => {
     }
   };
 
+  // Get all documents from a collection
   const getAllDocuments = async () => {
     let allDocs = await getDocs(collection(db, "songs"));
+
+    // Printing out the array of documents (objects), probably put this in state variable
+    // [ {title: Dawn FM, artist: The Weeknd }, ... ]
     console.log(
       allDocs.docs.map((document) => {
         return document.data();
@@ -44,6 +52,7 @@ const Home = () => {
     );
   };
 
+  // Update document with a new field 
   const updateDocument = async () => {
     const song1Ref = doc(db, "songs", "song-1");
 
@@ -53,12 +62,13 @@ const Home = () => {
     });
   };
 
+  // onSnapshot listens for changes in the database and will automatically re-run the console.log when the data changes
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "songs", "song-1"), (doc) =>
       console.log("current data: ", doc.data())
     );
 
-    // Cleanup
+    // Cleanup - we have to cleanup because we are subscribing and listening, we don't want to keep the subscription if we move off the screen
     return unsub;
   }, []);
 

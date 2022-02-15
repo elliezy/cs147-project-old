@@ -5,6 +5,8 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+// NOTE: REPLACE THESE WITH YOUR PERSONAL CREDENTIALS. THIS CONFIG DOESN'T WORK ANYMORE
 const firebaseConfig = {
   apiKey: "AIzaSyCKL8Qg11UDFZCzukzLSsBcsUJYjdlzIew",
   authDomain: "cs47lecture7a.firebaseapp.com",

@@ -12,7 +12,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="HomeStack" component={HomeStack} />
+        <Tab.Screen name="HomeStack" component={HomeStack} /> 
         <Tab.Screen name="SettingsStack" component={SettingStack} />
       </Tab.Navigator>
     </NavigationContainer>
