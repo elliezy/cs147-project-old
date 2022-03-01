@@ -1,4 +1,3 @@
-# lecture-7a-demo
-
-Boilerplate nested navigation (tab + stack) and Firestore storage tutorials
-# cs147-project
+# Stanford CS 47 & CS 147 Final Project
+Ellie Yang
+Audrey Sy
